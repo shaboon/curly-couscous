@@ -42,7 +42,9 @@ $(document).ready(function () {
             "Temp: " + data.list[i * 8].main.temp_min + "°F";
           image[i].setAttribute(
             "src",
-            "https://openweathermap.org/img/wn/" + data.list[i].weather[0].icon
+            "https://openweathermap.org/img/wn/" +
+              data.list[i].weather[0].icon +
+              "@2x.png"
           );
           image[i].setAttribute("alt", data.list[i].weather[0].description);
           blockwind[i].innerHTML =
