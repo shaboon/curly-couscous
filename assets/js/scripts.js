@@ -2,13 +2,14 @@ $(document).ready(function () {
   var apiKey = "88b98ce88c750083cc3efc235475dd54";
   var searchEl = document.querySelector(".cityvalue");
   var citySearch = $(".inputcity");
+  var listEl = $(".searches");
 
   function init() {
     console.log("init Started");
 
     // calls API and sets required parameters such as city and key
     fetch(
-      "https://api.openweathermap.org/data/2.5/forecast?q=" +
+      "https://api.openweathermap.org/data/2.5/forecast?units=imperial&q=" +
         searchEl.value +
         "&limit=" +
         1 +
@@ -21,46 +22,33 @@ $(document).ready(function () {
       })
       // from data, lat and lon is pulled, then function is given variables
       .then(function (data) {
-        // Current Weather
-        var today = document.querySelectorAll(".today");
-        for (let i = 0; i < today.length; i++) {
-          var nowDate = data.list[i].dt;
-          var time = document.getElementsByClassName("date");
-          var image = document.getElementsByClassName("pic");
-          var temp = document.getElementsByClassName("temp");
-          var wind = document.getElementsByClassName("wind");
-          var hum = document.getElementsByClassName("humd");
-          time.innerHTML = dayjs.unix(nowDate).format("MMM/DD/YYYY");
-          temp.innerHTML = "Temp: " + data.list[i].main.temp_min + "°F";
-          // image.setAttribute(
-          //   "src",
-          //   "https://openweathermap.org/img/wn/" +
-          //     data.list[i].weather.icon
-          // );
-          // image.setAttribute("alt", data.list[i].weather.description);
-          wind.innerHTML = "Wind: " + data.list[i].wind.speed + " MPH";
-          hum.innerHTML = "Humidity: " + data.list[i].main.humidity + "%";
-        }
         // 5 DAY WEATHER DATA
         console.log(data);
         var weather = document.querySelectorAll(".wcard");
         for (let i = 0; i < weather.length; i++) {
-          var currentDate = data.list[i].dt;
-          var time = document.getElementsByClassName("date");
-          var image = document.getElementsByClassName("pic");
-          var temp = document.getElementsByClassName("temp");
-          var wind = document.getElementsByClassName("wind");
-          var hum = document.getElementsByClassName("humd");
-          // time[i].innerHTML = dayjs.unix(currentDate).format("MMM/DD/YYYY");
-          temp[i].innerHTML = "Temp: " + data.list[i].main.temp_min + "°F";
-          // image.setAttribute(
-          //   "src",
-          //   "https://openweathermap.org/img/wn/" +
-          //     data.list[i].weather.icon
-          // );
-          // image.setAttribute("alt", data.list[i].weather.description);
-          wind[i].innerHTML = "Wind: " + data.list[i].wind.speed + " MPH";
-          hum[i].innerHTML = "Humidity: " + data.list[i].main.humidity + "%";
+          var currentDate = data.list[i * 8].dt;
+          console.log(currentDate);
+          console.log(i * 8);
+          console.log(dayjs.unix(currentDate).format("MMM/DD/YYYY"));
+          var blocktime = document.getElementsByClassName("blocktime");
+          var image = document.getElementsByClassName("status");
+          var blocktemp = document.getElementsByClassName("blocktemp");
+          var blockwind = document.getElementsByClassName("blockwind");
+          var blockhum = document.getElementsByClassName("blockhumd");
+          blocktime[i].textContent = dayjs
+            .unix(currentDate)
+            .format("MMM/DD/YYYY");
+          blocktemp[i].innerHTML =
+            "Temp: " + data.list[i * 8].main.temp_min + "°F";
+          image[i].setAttribute(
+            "src",
+            "https://openweathermap.org/img/wn/" + data.list[i].weather[0].icon
+          );
+          image[i].setAttribute("alt", data.list[i].weather[0].description);
+          blockwind[i].innerHTML =
+            "Wind: " + data.list[i * 8].wind.speed + " MPH";
+          blockhum[i].innerHTML =
+            "Humidity: " + data.list[i * 8].main.humidity + "%";
         }
         console.log(data);
         console.log(weather);
@@ -76,8 +64,25 @@ $(document).ready(function () {
 
     // Stringifies object to JSON string for easy localStorage call opposed to multiple values having to be called
     localStorage.setItem("search", searchEl);
+    var searchText = document.createElement("li");
+    searchText.setAttribute("class", "col");
+
+    // listEl.appendChild(searchText);
     console.log("line 54");
 
     init();
   });
+
+  // function renderSearches() {
+  //   var history = localStorage.getItem("searches");
+
+  //   for (let i = 0; i < totalHistory.length; i++) {
+  //     const blocks = totalHistory[i];
+  //   }
+
+  //   var block = document.createElement("li");
+  //   block.innerHTML = history;
+  // }
+
+  // renderSearches();
 });
