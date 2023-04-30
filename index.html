@@ -11,67 +11,73 @@
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <title>5-Day Forcast</title>
 </head>
-<body class="container mx-0 my-0">
-    <nav class="col primary text-center">5-Day Forcast</nav>
-    <section>        
-        <div class="col today">
-            <h1 class="place"></h1>
-            <div class="time">Date</div>
-            <img src="" alt="" class="currentstatus">
-            <div class="temp">Loading...</div>
-            <div class="wind">Loading...</div>
-            <div class="humd">Loading...</div>
-        </div>
-    </section>
-    <main>
-        <div class = row>
-        <div class="col wcard">Wow
-            <div class="blocktime">Date</div>
-            <img src="" alt="" class="status">
-            <div class="blocktemp">Loading...</div>
-            <div class="blockwind">Loading...</div>
-            <div class="blockhumd">Loading...</div>
-        </div>
-        <div class="col wcard">Wow
-            <div class="blocktime">Date</div>
-            <img src="" alt="" class="status">
-            <div class="blocktemp">Loading...</div>
-            <div class="blockwind">Loading...</div>
-            <div class="blockhumd">Loading...</div>
-        </div>
-        <div class="col wcard">Wow
-            <div class="blocktime">Date</div>
-            <img src="" alt="" class="status">
-            <div class="blocktemp">Loading...</div>
-            <div class="blockwind">Loading...</div>
-            <div class="blockhumd">Loading...</div>
-        </div>
-        <div class="col wcard">Wow
-            <div class="blocktime">Date</div>
-            <img src="" alt="" class="status">
-            <div class="blocktemp">Loading...</div>
-            <div class="blockwind">Loading...</div>
-            <div class="blockhumd">Loading...</div>
-        </div>
-        <div class="col wcard">Wow
-            <div class="blocktime">Date</div>
-            <img src="" alt="" class="status">
-            <div class="blocktemp">Loading...</div>
-            <div class="blockwind">Loading...</div>
-            <div class="blockhumd">Loading...</div>
-        </div>
-        </div>
-    </main>
-    <aside>
-        <form action="submit">
-            <input type="text" class="cityvalue" placeholder="Enter City Name Only Please">
-            <button class="inputcity">Search</button>
-            <section>
-                <ul class="searches">
-                </ul>
+<body class="container">
+    <nav class="row col-12 bg-primary justify-content-center title">5-Day Forcast</nav>
+    <div class="row">
+        <aside class="col-12 col-md-4 justify-content-center search-wrapper">
+            <form action="submit" class="col-12">
+                <input type="text" class="cityvalue col-8 justify-content-center" placeholder="Enter City Name Only Please">
+                <button class="inputcity col-3">Search</button>
+                <section>
+                    <ul class="searches">
+                    </ul>
+                </section>
+            </form>
+        </aside>
+        <div class="col-7 justify-content-center">
+            <section class="row col-12 border border-dark current-wrapper">        
+                <h2 class="weather">Current Forcast</h2>
+                <div class="col-12 today">
+                    <h1 class="place"></h1>
+                    <div class="time">Loading</div>
+                    <img src="" alt="" class="currentstatus">
+                    <div class="temp">Loading...</div>
+                    <div class="wind">Loading...</div>
+                    <div class="humd">Loading...</div>
+                </div>
             </section>
-        </form>
-    </aside>
+            <main class="row">
+                <h3>5-Day Forcast</h3>
+                <div class = "col-12 justify-content-center future-wrapper">
+                <div class="col-12 col-lg-2 bg-dark text-light m-2 p-2 wcard">Wow
+                    <div class="blocktime">Loading</div>
+                    <img src="" alt="" class="status">
+                    <div class="blocktemp">Loading...</div>
+                    <div class="blockwind">Loading...</div>
+                    <div class="blockhumd">Loading...</div>
+                </div>
+                <div class="col-12 col-lg-2 bg-dark text-light m-2 p-2 wcard">Wow
+                    <div class="blocktime">Date</div>
+                    <img src="" alt="" class="status">
+                    <div class="blocktemp">Loading...</div>
+                    <div class="blockwind">Loading...</div>
+                    <div class="blockhumd">Loading...</div>
+                </div>
+                <div class="col-12 col-lg-2 bg-dark text-light m-2 p-2 wcard">Wow
+                    <div class="blocktime">Date</div>
+                    <img src="" alt="" class="status">
+                    <div class="blocktemp">Loading...</div>
+                    <div class="blockwind">Loading...</div>
+                    <div class="blockhumd">Loading...</div>
+                </div>
+                <div class="col-12 col-lg-2 bg-dark text-light m-2 p-2 wcard">Wow
+                    <div class="blocktime">Date</div>
+                    <img src="" alt="" class="status">
+                    <div class="blocktemp">Loading...</div>
+                    <div class="blockwind">Loading...</div>
+                    <div class="blockhumd">Loading...</div>
+                </div>
+                <div class="col-12 col-lg-2 bg-dark text-light m-2 p-2 wcard">Wow
+                    <div class="blocktime">Date</div>
+                    <img src="" alt="" class="status">
+                    <div class="blocktemp">Loading...</div>
+                    <div class="blockwind">Loading...</div>
+                    <div class="blockhumd">Loading...</div>
+                </div>
+                </div>
+            </main>
+        </div>
+    </div>
 </body>
 <script src="./assets/js/scripts.js"></script>
 </html>
